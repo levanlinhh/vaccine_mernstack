@@ -94,4 +94,95 @@ exports.getOne = async (req, res) => {
 //Trả về đối tượng người dùng kèm thông tin vaccine và địa điểm đã được truy xuất ở các bước trên với mã lỗi HTTP 200 nếu không có lỗi nào xảy ra.
 //Nếu có lỗi xuất hiện, thông báo lỗi sẽ được ghi vào console và trả về 1 mã lỗi HTTP 500 cho client.
 
+exports.update = async (req, res) => {
+    const {
+        phoneNumber,
+        idNumber,
+    } = req.body;
+    try {
+        let user = await User.findOne({phoneNumber: phoneNumber});
+        if(user && user._id.toString() !== req.params.id) {
+            return res.status(403).json("Phone number already registered for another account");
+        }
 
+        user = await User.findOne({idNumber: idNumber});
+        if(user && user._id.toString() != req.params.id) {
+            return res.status(403).json("Id number already registered for another account");
+        }
+        const updateUser = await User.findByIdAndUpdate(
+            req.params.id,
+            {
+                $set: req.body
+            }
+        );
+        res.status(200).json(updateUser);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+}
+//Đây là một hàm xử lý tương tác với cơ sở dữ liệu MongoDB để cập nhật thông tin của một người dùng.
+//Về cấu trúc chung của hàm, nó sử dụng async/await để đảm bảo rằng các lệnh cập nhật thông tin người dùng sẽ được thực hiện một cách đồng bộ. Hàm nhận vào 2 tham số là req và res. Tham số req đại diện cho request object trong Express, bao gồm các thông tin gửi lên từ client-side. Tham số res đại diện cho response object trong Express, bao gồm các phương thức để gửi trả kết quả về client-side.
+
+//Dữ liệu của request được truy cập thông qua req.body và 2 thuộc tính phoneNumber và idNumber được lấy ra.
+/*const {
+    phoneNumber,
+    idNumber,
+} = req.body;
+*/
+
+//Hàm sử dụng User.findOne để tìm kiếm một người dùng trong cơ sở dữ liệu với số điện thoại hoặc số CMND truyền vào. Nếu tìm thấy, nó sẽ kiểm tra xem người dùng đã tìm thấy có khác với người dùng được chỉ định trong params không. Nếu có, nó sẽ trả về mã lỗi 403 và thông báo lỗi tương ứng.
+/*let user = await User.findOne({phoneNumber: phoneNumber});
+if(user && user._id.toString() !== req.params.id) {
+    return res.status(403).json("Phone number already registered for another account");
+}
+
+user = await User.findOne({idNumber: idNumber});
+if(user && user._id.toString() != req.params.id) {
+    return res.status(403).json("Id number already registered for another account");
+}
+/*
+let user = await User.findOne({phoneNumber: phoneNumber});
+if(user && user._id.toString() !== req.params.id) {
+    return res.status(403).json("Phone number already registered for another account");
+}
+
+user = await User.findOne({idNumber: idNumber});
+if(user && user._id.toString() != req.params.id) {
+    return res.status(403).json("Id number already registered for another account");
+}
+*/
+
+//Nếu không có lỗi, hàm sử dụng User.findByIdAndUpdate để cập nhật thông tin của người dùng được chỉ định trong req.params.id. Các thông tin mới được cập nhật sẽ được lấy từ req.body.
+/*const updateUser = await User.findByIdAndUpdate(
+    req.params.id,
+    {
+        $set: req.body
+    }
+);
+*/
+
+//Nếu mọi thứ thành công, hàm sẽ trả về mã status 200 và thông tin của người dùng vừa được cập nhật.
+//res.status(200).json(updateUser);
+
+//Nếu có bất kỳ lỗi nào xảy ra trong quá trình xử lý, nó sẽ được catch bởi khối try-catch và trả về mã lỗi 500 cùng với thông báo lỗi.
+/*
+} catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+}
+*/
+
+
+exports.delete = async (req, res) => {
+    try {
+        const {id} = req.params;
+        await UserVaccine.deleteMany({user: id});
+        await UserPlace.deleteMany({user: id});
+        await User.findByIdAndDelete(id);
+        res.status(200).json("Deleted successfully");
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+}
