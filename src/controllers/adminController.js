@@ -3,10 +3,6 @@ const jwt = require('jsonwebtoken');
 const { Admin } = require('../models');
 
 
-exports.helloAdmin = function(req, res) {
-    res.send("Hello, Admin!");
-  };
-
 exports.login = async (req, res) => {
   try {
     const admin = await Admin.findOne({
@@ -34,6 +30,7 @@ exports.login = async (req, res) => {
       token,
       admin
     });
+    
   } catch (error) {
     console.log(err);
     res.status(500).json(err);
