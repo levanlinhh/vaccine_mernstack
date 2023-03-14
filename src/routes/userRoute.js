@@ -15,6 +15,12 @@ router.get(
     userController.getAll
 );
 
+router.get(
+    '/:id',
+    tokenHandler.verifyAdminToken,
+    userController.getOne
+);
+
 
 
 module.exports = router;

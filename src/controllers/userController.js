@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const { User, UserVaccine } = require('../models');
+const { User, UserVaccine, UserPlace } = require('../models');
 
 
 exports.createUser = async (req, res) => {
@@ -55,3 +55,43 @@ exports.getAll = async (req, res) => {
 }
 
 //Trong đoạn mã trên, phương thức `getAll` được export và xử lý tất cả các yêu cầu GET đối với tất cả người dùng từ database. Hàm này được viết bằng cách sử dụng `async/await` để đợi tất cả các Promise xử lý xong, để có thể trả về kết quả cuối cùng cho client.
+
+//Sử dụng `User.find({})` để tìm tất cả các bản ghi có trong database `User` bằng cách truy vấn toàn bộ (không thêm bất kỳ điều kiện nào).
+//Sử dụng `sort('-createdAt')` để sắp xếp các bản ghi theo thời gian tạo mới nhất, từ mới đến cũ.
+//Trong vòng lặp `for`, dùng `UserVaccine.find({ user: user._id })` để tìm các bản ghi liên quan đến mỗi người dùng thông qua trường `_id`.
+//Tương tự như bước 2, sử dụng `sort('-createdAt')` để sắp xếp các bản ghi vaccine theo thời gian được tạo mới nhất.
+//Thêm trường `vaccine` vào `_doc` của mỗi người dùng, và gán giá trị này bằng đối tượng vaccines tìm được trong bước 3.
+//Thêm trường `vaccine` vào `_doc` của mỗi người dùng, và gán giá trị này bằng đối tượng vaccines tìm được trong bước 3.
+//Còn trong trường hợp có lỗi, thông báo lỗi sẽ được ghi vào console và trả về 1 mã lỗi HTTP 500 cho client.
+
+exports.getOne = async (req, res) => {
+    try {
+        const user = await User.findById(req.params.id);
+        const userVaccine = await UserVaccine.find({
+            user: req.params.id
+        }).populate('vaccine').populate('vaccineLot').sort('-createdAt');
+        const userPlaceVisit = await UserPlace.find({
+            user: req.params.id
+        }).populate('place').sort('-createdAt');
+
+        user._doc.vaccinated = userVaccine;
+        user._doc.placeVisited = userPlaceVisit;
+
+        res.status(200).json(user);
+    } catch(err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+}
+
+//Trong đoạn mã này, phương thức `getOne` được export và sử dụng để lấy thông tin của một người dùng từ database. Kết quả được trả về bao gồm thông tin vaccine và địa điểm mà người dùng đã đi đến.
+//Sử dụng `User.findById(req.params.id)` để tìm kiếm người dùng trong cơ sở dữ liệu thông qua `id` được truyền vào qua param trong url.
+//Sử dụng `UserVaccine.find({ user: req.params.id })` để tìm kiếm các thông tin vaccine liên quan đến người dùng trong cơ sở dữ liệu. Ở đây, sử dụng `populate('vaccine')` và `populate('vaccineLot')` để thêm thông tin về vaccine và lô vaccine vào các bản ghi tìm được. Sau đó, sử dụng `sort('-createdAt')` để sắp xếp các bản ghi theo thời gian tạo mới nhất.
+//Sử dụng `UserPlace.find({ user: req.params.id })` để tìm kiếm các địa điểm mà người dùng đã đi đến, tương tự như bước 2.
+//Tương tự như bước 2, sử dụng `populate('place')` để thêm thông tin về địa điểm vào các bản ghi tìm được, và sử dụng `sort('-createdAt')` để sắp xếp các bản ghi theo thời gian tạo mới nhất.
+//Thêm trường `vaccinated` trong `_doc` của đối tượng người dùng và gán giá trị này bằng đối tượng vaccine được tìm kiếm ở bước 2.
+//Thêm trường `placeVisited` trong `_doc` của đối tượng người dùng và gán giá trị này bằng đối tượng địa điểm được tìm kiếm ở bước 3.
+//Trả về đối tượng người dùng kèm thông tin vaccine và địa điểm đã được truy xuất ở các bước trên với mã lỗi HTTP 200 nếu không có lỗi nào xảy ra.
+//Nếu có lỗi xuất hiện, thông báo lỗi sẽ được ghi vào console và trả về 1 mã lỗi HTTP 500 cho client.
+
+
