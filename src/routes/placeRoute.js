@@ -7,7 +7,7 @@ const { placeController } = require('../controllers');
 router.post(
     '/',
     tokenHandler.verifyToken,
-    placeController.createPlace
+    placeController.create
 );
 
 //Lay ra tat ca dia diem

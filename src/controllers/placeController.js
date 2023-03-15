@@ -1,7 +1,7 @@
 const { Place,UserPlace } = require('../models');
 const userPlace = require('../models/userPlace');
 
-exports.createPlace = async (req, res) => {
+exports.create = async (req, res) => {
     try {
         const newPlace = new Place({
             ...req.body,
