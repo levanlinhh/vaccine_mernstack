@@ -186,3 +186,5 @@ exports.delete = async (req, res) => {
         res.status(500).json(err);
     }
 }
+
+//Thêm 1 user
