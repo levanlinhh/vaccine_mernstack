@@ -38,6 +38,18 @@ router.delete(
     userController.delete
 );
 
+//Them 1 vaccine cho user
+router.post(
+    '/vaccinated',
+    tokenHandler.verifyAdminToken,
+    userController.vaccinated
+)
+
+router.get(
+    '/:userId/place',
+    tokenHandler.verifyToken,
+    userController.getAllPlace
+)
 
 
 

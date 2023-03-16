@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const { User, UserVaccine, UserPlace } = require('../models');
+const { User, UserVaccine, UserPlace, VaccineLot, Vaccine, Place } = require('../models');
 
 
 exports.createUser = async (req, res) => {
@@ -187,4 +187,48 @@ exports.delete = async (req, res) => {
     }
 }
 
-//Thêm 1 user
+//Thêm vaccine cho user
+exports.vaccinated = async (req, res) => {
+    try {
+        const {
+            userId,
+            vaccineId,
+            vaccineLotId
+        } = req.body;
+
+        const newVaccine = new UserVaccine({
+            user: userId,
+            vaccine: vaccineId,
+            vaccineLot: vaccineLotId
+        });
+
+        const saveUserVaccine = await newVaccine.save();
+        await VaccineLot.findOneAndUpdate({
+            _id: vaccineLotId
+        }, {
+            $inc: {
+                vaccinated: +1
+            }
+        });
+
+        saveUserVaccine._doc.vaccine = await Vaccine.findById(vaccineId);
+        saveUserVaccine._doc.vaccine = await VaccineLot.findById(vaccineLotId);
+        res.status(200).json(saveUserVaccine);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+}
+
+//Lay dia diem nguoi dung
+exports.getAllPlace = async (req, res) => {
+    try {
+        const list = await Place.find({
+            creator: req.params.userId
+        });
+        res.status(200).json(list);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+}
