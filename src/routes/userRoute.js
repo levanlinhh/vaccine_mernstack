@@ -38,7 +38,8 @@ router.delete(
     userController.delete
 );
 
-//Them 1 vaccine cho user
+// add vaccinated to user
+
 router.post(
     '/vaccinated',
     tokenHandler.verifyAdminToken,
@@ -49,8 +50,19 @@ router.get(
     '/:userId/place',
     tokenHandler.verifyToken,
     userController.getAllPlace
-)
+);
 
+router.post(
+    '/checkin-place',
+    tokenHandler.verifyToken,
+    userController.checkinPlace
+);
 
+// place that user visited
+router.get(
+    '/:userId/place-visited',
+    tokenHandler.verifyToken,
+    userController.placeVisited
+);
 
 module.exports = router;
