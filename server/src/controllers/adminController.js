@@ -87,3 +87,33 @@ exports.summary = async (req, res) => {
         res.status(500).json(err);
     }
 }
+
+//Đây là một hàm xử lý yêu cầu HTTP của một ứng dụng web, hàm này được xuất ra ngoài module bằng cách sử dụng cú pháp exports.summary = async (req, res) => {...}. Hàm này có nhiệm vụ trả về thông tin tổng quan về tình hình tiêm chủng của người dùng.
+
+//Đoạn mã bắt đầu bằng việc sử dụng các hàm của Mongoose để đếm số lượng người dùng và địa điểm đã đăng ký trong hệ thống:
+
+//const totalUser = await User.find({}).count();
+//const totalPlace = await Place.find({}).count();
+
+//Sau đó, đoạn mã tiếp tục sử dụng các hàm của Mongoose để đếm số lượng người dùng đã được tiêm chủng, số lượng liều vắc xin còn lại, số lượng liều vắc xin đã sử dụng và thông tin về lô vắc xin mới nhất:
+
+/*const userVaccinated = await UserVaccine.aggregate([{
+  $group: { _id: "$user" }
+}]).count("user");
+
+const totalVaccineDose = await VaccineLot.aggregate([{
+    $group: {
+        _id: null,
+        quantity: { $sum: "$quantity" }
+    }
+}]);
+
+const totalVaccineDoseUsed = await VaccineLot.aggregate().group({
+    _id: null,
+    vaccinated: { $sum: "$vaccinated" }
+});
+
+const latestVaccineLot = await VaccineLot.find({}).sort('-createdAt').limit(4).populate('vaccine');
+*/ 
+
+//
