@@ -1,0 +1,1212 @@
+{
+	"info": {
+		"_postman_id": "4208f5c2-240d-4743-a02f-23994d0ba94d",
+		"name": "vaccine",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23487121"
+	},
+	"item": [
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "admin login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"sdAWE@asd$\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/api/admin/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"admin",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "check token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTA2ZGY2YjEyNDA5ZWVmYzRlNzM2ZiIsImlhdCI6MTY3ODc5OTg0OH0.BVqRY_sfSjCH1sUHJ3zDimYV_QQoeXW5KNyO3IWr1tg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3000/api/admin/check-token",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"admin",
+								"check-token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get admin summary",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTA2ZGY2YjEyNDA5ZWVmYzRlNzM2ZiIsImlhdCI6MTY3ODc5OTg0OH0.BVqRY_sfSjCH1sUHJ3zDimYV_QQoeXW5KNyO3IWr1tg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phoneNumber\": \"034832328050\",\r\n    \"idNumber\": \"19110624730\",\r\n    \"fullName\": \"Lê Văn Lĩnh 2\",\r\n    \"address\": \"KTX KHU B 2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/api/admin/summary",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"admin",
+								"summary"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "create user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTA2ZGY2YjEyNDA5ZWVmYzRlNzM2ZiIsImlhdCI6MTY3ODc5OTg0OH0.BVqRY_sfSjCH1sUHJ3zDimYV_QQoeXW5KNyO3IWr1tg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phoneNumber\": \"034832328050\",\r\n    \"idNumber\": \"19110624730\",\r\n    \"fullName\": \"Lê Văn Lĩnh 2\",\r\n    \"address\": \"KTX KHU B 2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/api/user",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create vaccineted",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTA2ZGY2YjEyNDA5ZWVmYzRlNzM2ZiIsImlhdCI6MTY3ODc5OTg0OH0.BVqRY_sfSjCH1sUHJ3zDimYV_QQoeXW5KNyO3IWr1tg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": \"6411473363e07369a2d450e9\",\r\n    \"vaccineId\": \"6411cf39866447bf6b24e03c\",\r\n    \"vaccineLotId\": \"6411d1d5f45bb3eecc6bc079\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/api/user/vaccinated",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user",
+								"vaccinated"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user checkin place",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTE0NzMzNjNlMDczNjlhMmQ0NTBlOSIsImlhdCI6MTY3ODg1MzkzOX0.8vtmFwfYvHXZF7elj6C4Lz-hN08I0CzbtryfAF3vXuo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"placeId\": \"6411473363e07369a2d450e9\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/api/user/checkin-place",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user",
+								"checkin-place"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTA2ZGY2YjEyNDA5ZWVmYzRlNzM2ZiIsImlhdCI6MTY3ODc5OTg0OH0.BVqRY_sfSjCH1sUHJ3zDimYV_QQoeXW5KNyO3IWr1tg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phoneNumber\": \"03483232805\",\r\n    \"idNumber\": \"1911062473\",\r\n    \"fullName\": \"Lê Văn Lĩnh\",\r\n    \"address\": \"KTX KHU B\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/api/user/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all place user check in",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTA2ZGY2YjEyNDA5ZWVmYzRlNzM2ZiIsImlhdCI6MTY3ODc5OTg0OH0.BVqRY_sfSjCH1sUHJ3zDimYV_QQoeXW5KNyO3IWr1tg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phoneNumber\": \"03483232805\",\r\n    \"idNumber\": \"1911062473\",\r\n    \"fullName\": \"Lê Văn Lĩnh\",\r\n    \"address\": \"KTX KHU B\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/api/user/6411473363e07369a2d450e9/place-visited",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user",
+								"6411473363e07369a2d450e9",
+								"place-visited"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all vaccinted of user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTA2ZGY2YjEyNDA5ZWVmYzRlNzM2ZiIsImlhdCI6MTY3ODc5OTg0OH0.BVqRY_sfSjCH1sUHJ3zDimYV_QQoeXW5KNyO3IWr1tg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phoneNumber\": \"03483232805\",\r\n    \"idNumber\": \"1911062473\",\r\n    \"fullName\": \"Lê Văn Lĩnh\",\r\n    \"address\": \"KTX KHU B\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/api/user/6411473363e07369a2d450e9/place",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user",
+								"6411473363e07369a2d450e9",
+								"place"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get 1  user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTA2ZGY2YjEyNDA5ZWVmYzRlNzM2ZiIsImlhdCI6MTY3ODc5OTg0OH0.BVqRY_sfSjCH1sUHJ3zDimYV_QQoeXW5KNyO3IWr1tg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phoneNumber\": \"03483232805\",\r\n    \"idNumber\": \"1911062473\",\r\n    \"fullName\": \"Lê Văn Lĩnh\",\r\n    \"address\": \"KTX KHU B\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/api/user/64113508a8f186498160b5f8",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user",
+								"64113508a8f186498160b5f8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update 1 user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTA2ZGY2YjEyNDA5ZWVmYzRlNzM2ZiIsImlhdCI6MTY3ODc5OTg0OH0.BVqRY_sfSjCH1sUHJ3zDimYV_QQoeXW5KNyO3IWr1tg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"fullName\": \"Lê Văn Lĩnh update\",\r\n    \"address\": \"KTX KHU B\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/api/user/641082ec45dd1a34cc993284",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user",
+								"641082ec45dd1a34cc993284"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTA2ZGY2YjEyNDA5ZWVmYzRlNzM2ZiIsImlhdCI6MTY3ODc5OTg0OH0.BVqRY_sfSjCH1sUHJ3zDimYV_QQoeXW5KNyO3IWr1tg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phoneNumber\": \"03483232805\",\r\n    \"idNumber\": \"1911062473\",\r\n    \"fullName\": \"Lê Văn Lĩnh\",\r\n    \"address\": \"KTX KHU B\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/api/user/641082ec45dd1a34cc993284",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user",
+								"641082ec45dd1a34cc993284"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Dia diem Place",
+			"item": [
+				{
+					"name": "create place dia diem",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTE0NzMzNjNlMDczNjlhMmQ0NTBlOSIsImlhdCI6MTY3ODg1MzkzOX0.8vtmFwfYvHXZF7elj6C4Lz-hN08I0CzbtryfAF3vXuo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"name\": \"Thái Bình Dương Hospiatl\",\r\n    \"address\": \"Tiên Phước Quảng Nam\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/api/place",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"place"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all   place",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTA2ZGY2YjEyNDA5ZWVmYzRlNzM2ZiIsImlhdCI6MTY3ODc5OTg0OH0.BVqRY_sfSjCH1sUHJ3zDimYV_QQoeXW5KNyO3IWr1tg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phoneNumber\": \"03483232805\",\r\n    \"idNumber\": \"1911062473\",\r\n    \"fullName\": \"Lê Văn Lĩnh\",\r\n    \"address\": \"KTX KHU B\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/api/place/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"place",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get 1 place",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTA2ZGY2YjEyNDA5ZWVmYzRlNzM2ZiIsImlhdCI6MTY3ODc5OTg0OH0.BVqRY_sfSjCH1sUHJ3zDimYV_QQoeXW5KNyO3IWr1tg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phoneNumber\": \"03483232805\",\r\n    \"idNumber\": \"1911062473\",\r\n    \"fullName\": \"Lê Văn Lĩnh\",\r\n    \"address\": \"KTX KHU B\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/api/place/641138fd331196033a75c40a",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"place",
+								"641138fd331196033a75c40a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update 1 place",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTE0NzMzNjNlMDczNjlhMmQ0NTBlOSIsImlhdCI6MTY3ODg1MzkzOX0.8vtmFwfYvHXZF7elj6C4Lz-hN08I0CzbtryfAF3vXuo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"name\": \"QN Hospiatl 223\",\r\n    \"address\": \"KTX KHU B 2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/api/place/641147fb63e07369a2d450fe",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"place",
+								"641147fb63e07369a2d450fe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete place",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTE0NzMzNjNlMDczNjlhMmQ0NTBlOSIsImlhdCI6MTY3ODg1MzkzOX0.8vtmFwfYvHXZF7elj6C4Lz-hN08I0CzbtryfAF3vXuo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/api/place/641147fb63e07369a2d450fe",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"place",
+								"641147fb63e07369a2d450fe"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vaccine",
+			"item": [
+				{
+					"name": "create vaccine",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTA2ZGY2YjEyNDA5ZWVmYzRlNzM2ZiIsImlhdCI6MTY3ODc5OTg0OH0.BVqRY_sfSjCH1sUHJ3zDimYV_QQoeXW5KNyO3IWr1tg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Đà Nẵng\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/api/vaccine",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"vaccine"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all vaccine",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTA2ZGY2YjEyNDA5ZWVmYzRlNzM2ZiIsImlhdCI6MTY3ODc5OTg0OH0.BVqRY_sfSjCH1sUHJ3zDimYV_QQoeXW5KNyO3IWr1tg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phoneNumber\": \"03483232805\",\r\n    \"idNumber\": \"1911062473\",\r\n    \"fullName\": \"Lê Văn Lĩnh\",\r\n    \"address\": \"KTX KHU B\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/api/vaccine/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"vaccine",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get 1  vaccine",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTA2ZGY2YjEyNDA5ZWVmYzRlNzM2ZiIsImlhdCI6MTY3ODc5OTg0OH0.BVqRY_sfSjCH1sUHJ3zDimYV_QQoeXW5KNyO3IWr1tg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phoneNumber\": \"03483232805\",\r\n    \"idNumber\": \"1911062473\",\r\n    \"fullName\": \"Lê Văn Lĩnh\",\r\n    \"address\": \"KTX KHU B\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/api/vaccine/6411c9710e86aee6981df2c1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"vaccine",
+								"6411c9710e86aee6981df2c1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update 1 vaccine",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTA2ZGY2YjEyNDA5ZWVmYzRlNzM2ZiIsImlhdCI6MTY3ODc5OTg0OH0.BVqRY_sfSjCH1sUHJ3zDimYV_QQoeXW5KNyO3IWr1tg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"name\": \"Mỹ 123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/api/vaccine/6411caa770f39eb2454d2c56",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"vaccine",
+								"6411caa770f39eb2454d2c56"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete vaccine",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTA2ZGY2YjEyNDA5ZWVmYzRlNzM2ZiIsImlhdCI6MTY3ODc5OTg0OH0.BVqRY_sfSjCH1sUHJ3zDimYV_QQoeXW5KNyO3IWr1tg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phoneNumber\": \"03483232805\",\r\n    \"idNumber\": \"1911062473\",\r\n    \"fullName\": \"Lê Văn Lĩnh\",\r\n    \"address\": \"KTX KHU B\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/api/vaccine/6411c9710e86aee6981df2c1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"vaccine",
+								"6411c9710e86aee6981df2c1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vaccine Lot",
+			"item": [
+				{
+					"name": "create vaccine  lot",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTA2ZGY2YjEyNDA5ZWVmYzRlNzM2ZiIsImlhdCI6MTY3ODc5OTg0OH0.BVqRY_sfSjCH1sUHJ3zDimYV_QQoeXW5KNyO3IWr1tg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Trung Quốc\",\r\n    \"quantity\": 13000,\r\n    \"vaccineId\": \"6411d045866447bf6b24e047\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/api/vaccine/lots",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"vaccine",
+								"lots"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all vaccine lot",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTA2ZGY2YjEyNDA5ZWVmYzRlNzM2ZiIsImlhdCI6MTY3ODc5OTg0OH0.BVqRY_sfSjCH1sUHJ3zDimYV_QQoeXW5KNyO3IWr1tg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phoneNumber\": \"03483232805\",\r\n    \"idNumber\": \"1911062473\",\r\n    \"fullName\": \"Lê Văn Lĩnh\",\r\n    \"address\": \"KTX KHU B\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/api/vaccine/lots/get-all",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"vaccine",
+								"lots",
+								"get-all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get 1 vaccine lot",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTA2ZGY2YjEyNDA5ZWVmYzRlNzM2ZiIsImlhdCI6MTY3ODc5OTg0OH0.BVqRY_sfSjCH1sUHJ3zDimYV_QQoeXW5KNyO3IWr1tg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phoneNumber\": \"03483232805\",\r\n    \"idNumber\": \"1911062473\",\r\n    \"fullName\": \"Lê Văn Lĩnh\",\r\n    \"address\": \"KTX KHU B\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/api/vaccine/lots/6411d1d5f45bb3eecc6bc079",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"vaccine",
+								"lots",
+								"6411d1d5f45bb3eecc6bc079"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update 1 vaccine lots",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTA2ZGY2YjEyNDA5ZWVmYzRlNzM2ZiIsImlhdCI6MTY3ODc5OTg0OH0.BVqRY_sfSjCH1sUHJ3zDimYV_QQoeXW5KNyO3IWr1tg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Đài Loan\",\r\n    \"quantity\": 15000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/api/vaccine/6411caa770f39eb2454d2c56",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"vaccine",
+								"6411caa770f39eb2454d2c56"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete vaccine lot",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTA2ZGY2YjEyNDA5ZWVmYzRlNzM2ZiIsImlhdCI6MTY3ODc5OTg0OH0.BVqRY_sfSjCH1sUHJ3zDimYV_QQoeXW5KNyO3IWr1tg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phoneNumber\": \"03483232805\",\r\n    \"idNumber\": \"1911062473\",\r\n    \"fullName\": \"Lê Văn Lĩnh\",\r\n    \"address\": \"KTX KHU B\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/api/vaccine/lots/6411caa770f39eb2454d2c56",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"vaccine",
+								"lots",
+								"6411caa770f39eb2454d2c56"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
